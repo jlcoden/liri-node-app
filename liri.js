@@ -1,8 +1,6 @@
-//require("dotenv").config();
-//var keys = require("./keys.js");
-
-//var spotify = new Spotify(keys.spotify);
-
+require("dotenv").config();
+var keys = require("./keys.js");
+var Spotify = require("node-spotify-api");
 var axios = require("axios");
 let userInput = process.argv[2];
 let userQuery = process.argv.slice(3).join("+");
@@ -13,9 +11,9 @@ function userCommand(userInput, userQuery) {
     case "concert-this":
       concertThis();
       break;
-    // case "spotify-this":
-    //    spotifyThis();
-    //     break;
+    case "spotify-this":
+      spotifyThis();
+      break;
     // case "movie-this":
     //     movieThis();
     //     break;
@@ -75,4 +73,32 @@ function concertThis() {
       }
       console.log(error.config);
     });
+}
+
+function spotifyThis() {
+  if (!userQuery) {
+    userQuery = "the sign ace of base";
+  }
+
+  var spotify = new Spotify(keys.spotify);
+
+  spotify.request(
+    "https://api.spotify.com/v1/search?q=track:" +
+      userQuery +
+      "&type=track&limit=10",
+    function(error, response) {
+      if (error) {
+        return console.log(error);
+      }
+
+      for (var i = 0; i < response.tracks.items.length; i++) {
+        var songData = response.tracks.items[i];
+
+        console.log("Artist: " + songData.artists[0].name);
+        console.log("Song: " + songData.name);
+        console.log("URL: " + songData.preview_url);
+        console.log("Album: " + songData.album.name);
+      }
+    }
+  );
 }
