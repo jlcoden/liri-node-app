@@ -3,6 +3,7 @@ require("dotenv").config();
 var keys = require("./keys.js");
 var Spotify = require("node-spotify-api");
 var axios = require("axios");
+var moment = require("moment");
 var fs = require("fs");
 //stored user input
 let userInput = process.argv[2];
@@ -16,10 +17,10 @@ function userCommand(userInput, userQuery) {
       concertThis();
       break;
     case "spotify-this":
-      spotifyThis(userInquery);
+      spotifyThis(userQuery);
       break;
     case "movie-this":
-      movieThis(userInquery);
+      movieThis(userQuery);
       break;
     case "do-what-it-says":
       doThis();
@@ -60,7 +61,9 @@ function concertThis() {
           ", Country: " +
           response.data[0].venue.country
       );
-      console.log("Date of Event: ");
+      var date = response.data[0].datetime;
+      date = moment(date).format("MM/DD/YYYY");
+      console.log("Date of Event: " + date);
     })
     .catch(function(error) {
       if (error.response) {

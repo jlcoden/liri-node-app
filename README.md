@@ -28,6 +28,13 @@ LIRI is an application for finding out information about band venues, songs, and
 
 **Technologies Used**
 
+- Axios: Used to retrieve data from OMDB API and Bands In Town API
+- Bands In Town API: API used to request data about band venues and locations
+- Moment: Library used to convert date format of venue to "MM/DD/YYYY"
+- Node-Spotify-API: API Used to request song information from spotify
+- OMDB API: API Used to request movie information from OMDB
+- DotEnv: package to set environment variables to the global process.env object in node
+
 **Credits**
 
 - Developer and app creator: Josh Cosson
