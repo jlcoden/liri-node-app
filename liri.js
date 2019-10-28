@@ -16,7 +16,7 @@ function userCommand(userInput, userQuery) {
     case "concert-this":
       concertThis();
       break;
-    case "spotify-this":
+    case "spotify-this-song":
       spotifyThis(userQuery);
       break;
     case "movie-this":
