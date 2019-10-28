@@ -1,7 +1,6 @@
+require("dotenv").config();
 //pull data from keys.js
 var keys = require("./keys.js");
-
-require("dotenv").config();
 var Spotify = require("node-spotify-api");
 var axios = require("axios");
 var fs = require("fs");
@@ -17,15 +16,16 @@ function userCommand(userInput, userQuery) {
       concertThis();
       break;
     case "spotify-this":
-      spotifyThis(userQuery);
+      spotifyThis();
       break;
     case "movie-this":
-      movieThis(userQuery);
+      movieThis();
       break;
     case "do-what-it-says":
       doThis();
       break;
     default:
+      console.log(" I don't understand the request");
       break;
   }
 }
@@ -38,6 +38,10 @@ function concertThis() {
     "https://rest.bandsintown.com/artists/" +
     userQuery +
     "/events?app_id=codingbootcamp";
+
+  console.log(userQuery);
+  console.log(userInput);
+  console.log(queryUrl);
 
   axios
     .get(queryUrl)
@@ -91,7 +95,7 @@ function spotifyThis() {
   spotify.request(
     "https://api.spotify.com/v1/search?q=track:" +
       userQuery +
-      "&type=track&limit=10",
+      "&type=track&limit=5",
     function(error, response) {
       if (error) {
         return console.log(error);
@@ -174,6 +178,5 @@ function doThis() {
     console.log(dataArr[1]);
     spotifyThis(dataArr[1]);
     // userCommand(dataArr[0], dataArr[1]);
-    // We will then re-display the content as an array for later use.
   });
 }
