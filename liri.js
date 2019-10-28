@@ -16,10 +16,10 @@ function userCommand(userInput, userQuery) {
       concertThis();
       break;
     case "spotify-this":
-      spotifyThis();
+      spotifyThis(userInquery);
       break;
     case "movie-this":
-      movieThis();
+      movieThis(userInquery);
       break;
     case "do-what-it-says":
       doThis();
@@ -108,6 +108,7 @@ function spotifyThis() {
         console.log("Song: " + songData.name);
         console.log("URL: " + songData.preview_url);
         console.log("Album: " + songData.album.name);
+        console.log("--------------------------------");
       }
     }
   );
@@ -174,9 +175,9 @@ function doThis() {
     }
     // Then split it by commas (to make it more readable)
     var dataArr = data.split(",");
-    console.log(dataArr[0]);
-    console.log(dataArr[1]);
-    spotifyThis(dataArr[1]);
+    //console.log(dataArr[0]);
+    userQuery = dataArr[1];
+    spotifyThis(userQuery);
     // userCommand(dataArr[0], dataArr[1]);
   });
 }
