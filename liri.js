@@ -1,38 +1,43 @@
-require("dotenv").config();
+//pull data from keys.js
 var keys = require("./keys.js");
+
+require("dotenv").config();
 var Spotify = require("node-spotify-api");
 var axios = require("axios");
+var fs = require("fs");
+//stored user input
 let userInput = process.argv[2];
 let userQuery = process.argv.slice(3).join("+");
 
+// function for command options
 function userCommand(userInput, userQuery) {
-  //make a decidsion based on the user input in the command
+  //make a decision based on the user input in the command
   switch (userInput) {
     case "concert-this":
       concertThis();
       break;
     case "spotify-this":
-      spotifyThis();
+      spotifyThis(userQuery);
       break;
     case "movie-this":
-      movieThis();
+      movieThis(userQuery);
       break;
-    // default:
-    // console.log(" I don't understand the request");
-    // break;
+    case "do-what-it-says":
+      doThis();
+      break;
+    default:
+      break;
   }
 }
+//initiate userCommand function
 userCommand(userInput, userQuery);
 
+//function for pulling up concert information of band
 function concertThis() {
   var queryUrl =
     "https://rest.bandsintown.com/artists/" +
     userQuery +
     "/events?app_id=codingbootcamp";
-
-  console.log(userQuery);
-  console.log(userInput);
-  console.log(queryUrl);
 
   axios
     .get(queryUrl)
@@ -75,6 +80,7 @@ function concertThis() {
     });
 }
 
+//function for spotifying song
 function spotifyThis() {
   if (!userQuery) {
     userQuery = "the sign ace of base";
@@ -103,6 +109,7 @@ function spotifyThis() {
   );
 }
 
+//function for requesting movie data of movie
 function movieThis() {
   if (!userQuery) {
     userQuery = "Mr. Nobody";
@@ -152,4 +159,21 @@ function movieThis() {
       }
       console.log(error.config);
     });
+}
+
+//function for doing something random from random.txt file
+function doThis() {
+  fs.readFile("random.txt", "utf8", function(error, data) {
+    // If the code experiences any errors it will log the error to the console.
+    if (error) {
+      return console.log(error);
+    }
+    // Then split it by commas (to make it more readable)
+    var dataArr = data.split(",");
+    console.log(dataArr[0]);
+    console.log(dataArr[1]);
+    spotifyThis(dataArr[1]);
+    // userCommand(dataArr[0], dataArr[1]);
+    // We will then re-display the content as an array for later use.
+  });
 }
