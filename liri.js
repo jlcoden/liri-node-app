@@ -11,7 +11,7 @@ let userQuery = process.argv.slice(3).join("+");
 
 // function for command options
 function userCommand(userInput, userQuery) {
-  //make a decision based on the user input in the command
+  //make a decision based on the user input
   switch (userInput) {
     case "concert-this":
       concertThis();
@@ -26,7 +26,7 @@ function userCommand(userInput, userQuery) {
       doThis();
       break;
     default:
-      console.log(" I don't understand the request");
+      console.log("I don't understand the request");
       break;
   }
 }
@@ -35,20 +35,19 @@ userCommand(userInput, userQuery);
 
 //function for pulling up concert information of band
 function concertThis() {
+  //url to bands in town api
   var queryUrl =
     "https://rest.bandsintown.com/artists/" +
     userQuery +
     "/events?app_id=codingbootcamp";
-
-  console.log(userQuery);
-  console.log(userInput);
-  console.log(queryUrl);
-
+  //axios to retrieve data from bands in town api
   axios
     .get(queryUrl)
     .then(function(response) {
+      // Venue Name
       console.log("Venue Name: " + response.data[0].venue.name);
       console.log(
+        //Venue Location
         "Venue location: " +
           " Latitude:" +
           response.data[0].venue.latitude +
@@ -61,10 +60,12 @@ function concertThis() {
           ", Country: " +
           response.data[0].venue.country
       );
+      // Venue date and format to MM/DD/YYYY using moment
       var date = response.data[0].datetime;
       date = moment(date).format("MM/DD/YYYY");
       console.log("Date of Event: " + date);
     })
+    //check for errors
     .catch(function(error) {
       if (error.response) {
         // The request was made and the server responded with a status code
@@ -89,27 +90,32 @@ function concertThis() {
 
 //function for spotifying song
 function spotifyThis() {
+  // if user does not enter a song, userQuery will default to the sign by ace of base
   if (!userQuery) {
-    userQuery = "the sign ace of base";
+    userQuery = "The Sign Ace of Base";
   }
-
+  //access keys to spotify
   var spotify = new Spotify(keys.spotify);
-
+  //request data from spotify with a limit of 5 tracks
   spotify.request(
     "https://api.spotify.com/v1/search?q=track:" +
       userQuery +
       "&type=track&limit=5",
     function(error, response) {
+      //if error console log error
       if (error) {
         return console.log(error);
       }
-
+      // loop through tracks and console.log responses for the 5 tracks
       for (var i = 0; i < response.tracks.items.length; i++) {
         var songData = response.tracks.items[i];
-
+        //Artist Name
         console.log("Artist: " + songData.artists[0].name);
+        //Song
         console.log("Song: " + songData.name);
+        //Preview link of the song
         console.log("URL: " + songData.preview_url);
+        //Album Name
         console.log("Album: " + songData.album.name);
         console.log("--------------------------------");
       }
@@ -117,12 +123,13 @@ function spotifyThis() {
   );
 }
 
-//function for requesting movie data of movie
+//function for requesting movie data
 function movieThis() {
+  //if no movie provided by user, default to 'Mr. Nobody'
   if (!userQuery) {
     userQuery = "Mr. Nobody";
   }
-
+  // call to OMDB API
   var queryUrl =
     "http://www.omdbapi.com/?t=" + userQuery + "&y=&plot=short&apikey=trilogy";
 
@@ -149,6 +156,7 @@ function movieThis() {
 
     .catch(function(error) {
       if (error.response) {
+        // console log any errors
         // The request was made and the server responded with a status code
         // that falls out of the range of 2xx
         console.log("---------------Data---------------");

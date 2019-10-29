@@ -24,9 +24,11 @@ LIRI is an application for finding out information about band concert venues, in
     - A preview link of the song from Spotify
     - The album that the song is from
 
-If no song is provided by the user, then the program will default to "The Sign" by Ace of Base.
 How to initiate: node liri.js spotify-this-song '<song name here>'
 ![](spotify-this-song.gif)
+
+If no song is provided by the user, then the program will default to "The Sign" by Ace of Base.
+![](ace-of-base.gif)
 
 3. **movie-this**
    'movie-this' searches the OMDB API for movie data and renders the following information about each event to the terminal:
@@ -42,6 +44,9 @@ How to initiate: node liri.js spotify-this-song '<song name here>'
 
    How to initiate: node liri.js movie-this '<movie name here>'
    ![](movie-this.gif)
+
+   If the user doesn't type a movie in, Liri will default to the movie 'Mr. Nobody.'
+   ![](mr-nobody.gif)
 
 4. **do-what-it-says**
    'do-what-it-says' takes text from within the random.txt file and runs spotify-this-song based on that text.
