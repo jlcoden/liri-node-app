@@ -4,7 +4,7 @@ This is a LIRI bot application. LIRI is simimlar to iPhone's SIRI. However, whil
 
 LIRI is an application for finding out information about band concert venues, information about song tracks, and information about movies. For anyone that is passionate about concerts, music, and movies LIRI is the perfect application for quickly finding information on each topic, and addresses the need of having to search on different websites to gather that information.
 
-**Parameteres of the Application and How to Use Them**
+**Parameters of the Application and How to Use Them**
 
 1.  **concert-this**
     concert-this searches Bands in Town Artist Events API and renders the following information about each event to the terminal:
