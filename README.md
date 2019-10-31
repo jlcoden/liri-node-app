@@ -7,10 +7,10 @@ LIRI is an application for finding out information about band concert venues, in
 **userCommand Function**
 userComamand function takes in the user action they would like to make, along with the query value in which they would like to have that action done on. It is made up of a switch statement and includes the 4 commands: concert-this, spotify-this-song, movie-this, and do-what-it-says
 
-    Screenshot of code:
-    ![](userCommand.PNG)
+**screenshot of code**
+![](userCommand.PNG)
 
-**The Four Commands**
+**The Four Commands and their Functions**
 
 1.  **concert-this command**
     concert-this searches Bands in Town Artist Events API and renders the following information about each event to the terminal:
@@ -19,7 +19,7 @@ userComamand function takes in the user action they would like to make, along wi
     - Venue location
     - Date of the Event, formated as "MM/DD/YYYY"
 
-    **Screenshot of code:**
+    **Screenshot of concertThis Function Code:**
     ![](concertThis.PNG)
 
     **How to initiate: node liri.js concert-this <artist/band name here>**
@@ -32,7 +32,7 @@ userComamand function takes in the user action they would like to make, along wi
     - A preview link of the song from Spotify
     - The album that the song is from
 
-    **Screenshot of the code:**
+    **Screenshot of spotifyThis Function Code:**
     ![](/liri-node-app/spotifyThisSong.PNG)
 
     **How to initiate: node liri.js spotify-this-song <song name here>**
@@ -53,11 +53,11 @@ userComamand function takes in the user action they would like to make, along wi
     - Plot of the movie.
     - Actors in the movie.
 
-    **Screenshot of code:**
+    **Screenshot of movieThis Function code:**
     ![](movieThis.PNG)
 
     **How to initiate: node liri.js movie-this <movie name here>**
-    ![](movie-this.gif)
+    ![](/liri-node-app/movie-this.gif)
 
     If the user doesn't type a movie in, Liri will default to the movie 'Mr. Nobody.'
     ![](mr-nobody.gif)
@@ -65,7 +65,7 @@ userComamand function takes in the user action they would like to make, along wi
 4.  **do-what-it-says command**
     'do-what-it-says' takes text from within the random.txt file and runs spotify-this-song based on that text.
 
-    **Screenshot of code:**
+    **Screenshot of doThis Function code:**
     ![](doWhatItSays.PNG)
 
     **How to initiate: node liri.js do-what-it-says**
