@@ -37,6 +37,7 @@ userComamand function takes in the user action they would like to make, along wi
     ![](/liri-node-app/spotifyThisSong.PNG)
 
     **How to initiate: node liri.js spotify-this-song <song name here>**
+
     ![](/liri-node-app/spotify-this-song.gif)
 
     If no song is provided by the user, then the program will default to "The Sign" by Ace of Bace.
@@ -58,6 +59,7 @@ userComamand function takes in the user action they would like to make, along wi
     ![](movieThis.PNG)
 
     **How to initiate: node liri.js movie-this <movie name here>**
+
     ![](movie-this.gif)
 
 
