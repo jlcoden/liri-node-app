@@ -65,6 +65,7 @@ function concertThis() {
       date = moment(date).format("MM/DD/YYYY");
       console.log("Date of Event: " + date);
     })
+
     //check for errors
     .catch(function(error) {
       if (error.response) {
@@ -184,11 +185,13 @@ function doThis() {
     if (error) {
       return console.log(error);
     }
-    // Then split it by commas (to make it more readable)
+    // Then split it by commas to make it more readable
     var dataArr = data.split(",");
-    //console.log(dataArr[0]);
+    //index 0 = user input
+    userinput = dataArr[0];
+    //index 1 = user inquery
     userQuery = dataArr[1];
-    spotifyThis(userQuery);
-    // userCommand(dataArr[0], dataArr[1]);
+    //pass values to userCommand function
+    userCommand(userinput, userQuery);
   });
 }
