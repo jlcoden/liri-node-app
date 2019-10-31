@@ -27,9 +27,8 @@ LIRI is an application for finding out information about band concert venues, in
     - A preview link of the song from Spotify
     - The album that the song is from
 
-    **Screenshot of code:**
+    **Screenshot of code**
     ![](spotifyThisSong.PNG)
-
     **How to initiate: node liri.js spotify-this-song <song name here>**
     ![](spotify-this-song.gif)
 
@@ -66,17 +65,17 @@ LIRI is an application for finding out information about band concert venues, in
    **How to initiate: node liri.js do-what-it-says**
    ![](do-what-it-says.gif)
 
-**Technologies Used**
+   **Technologies Used**
 
-- Axios: Used to retrieve data from OMDB API and Bands In Town API
-- Bands In Town API: API used to request data about band venues and locations
-- Moment: Library used to convert date format of venue to "MM/DD/YYYY"
-- Node-Spotify-API: API Used to request song information from spotify
-- OMDB API: API Used to pull data of movie being searched
-- DotEnv: package to set environment variables to the global process.env object in node
+   - Axios: Used to retrieve data from OMDB API and Bands In Town API
+   - Bands In Town API: API used to request data about band venues and locations
+   - Moment: Library used to convert date format of venue to "MM/DD/YYYY"
+   - Node-Spotify-API: API Used to request song information from spotify
+   - OMDB API: API Used to pull data of movie being searched
+   - DotEnv: package to set environment variables to the global process.env object in node
 
-**Link to Application**
-https://jlcoden.github.io/liri-node-app/
+   **Link to Application**
+   https://jlcoden.github.io/liri-node-app/
 
-**Credits**
-Developer and app creator: Josh Cosson
+   **Credits**
+   Developer and app creator: Josh Cosson
