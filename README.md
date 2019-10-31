@@ -60,6 +60,7 @@ userComamand function takes in the user action they would like to make, along wi
     **How to initiate: node liri.js movie-this <movie name here>**
     ![](movie-this.gif)
 
+
     If the user doesn't type a movie in, Liri will default to the movie 'Mr. Nobody.'
     ![](mr-nobody.gif)
 
