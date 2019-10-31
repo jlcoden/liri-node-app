@@ -8,6 +8,7 @@ LIRI is an application for finding out information about band concert venues, in
 userComamand function takes in the user action they would like to make, along with the query value in which they would like to have that action done on. It is made up of a switch statement and includes the 4 commands: concert-this, spotify-this-song, movie-this, and do-what-it-says
 
 **screenshot of code**
+
 ![](userCommand.PNG)
 
 **The Four Commands and their Functions**
