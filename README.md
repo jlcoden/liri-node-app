@@ -4,7 +4,7 @@ This is a LIRI bot application. LIRI is simimlar to iPhone's SIRI. However, whil
 
 LIRI is an application for finding out information about band concert venues, information about song tracks, and information about movies. For anyone that is passionate about concerts, music, and movies LIRI is the perfect application for quickly finding information on each topic, and addresses the need of having to search on different websites to gather that information.
 
-**Parameters of the Application and How to Use Them**
+**Commands of the Application and How to Use Them**
 
 1.  **concert-this**
     concert-this searches Bands in Town Artist Events API and renders the following information about each event to the terminal:
@@ -13,10 +13,10 @@ LIRI is an application for finding out information about band concert venues, in
     - Venue location
     - Date of the Event, formated as "MM/DD/YYYY"
 
-    Screenshot of code:
+    **Screenshot of code:**
     ![](concertThis.PNG)
 
-    How to initiate: node liri.js concert-this <artist/band name here>
+    **How to initiate: node liri.js concert-this <artist/band name here>**
     ![](concert-this.gif)
 
 2)  **spotify-this-song**
@@ -27,10 +27,10 @@ LIRI is an application for finding out information about band concert venues, in
     - A preview link of the song from Spotify
     - The album that the song is from
 
-    Screenshot of code:
+    **Screenshot of code:**
     ![](spotifyThisSong.PNG)
 
-    How to initiate: node liri.js spotify-this-song <song name here>
+    **How to initiate: node liri.js spotify-this-song <song name here>**
     ![](spotify-this-song.gif)
 
     If no song is provided by the user, then the program will default to "The Sign" by Ace of Base.
@@ -48,22 +48,22 @@ LIRI is an application for finding out information about band concert venues, in
    - Plot of the movie.
    - Actors in the movie.
 
-   Screenshot of code:
+   **Screenshot of code:**
    ![](movieThis.PNG)
 
-How to initiate: node liri.js movie-this <movie name here>
-![](movie-this.gif)
+   **How to initiate: node liri.js movie-this <movie name here>**
+   ![](movie-this.gif)
 
-If the user doesn't type a movie in, Liri will default to the movie 'Mr. Nobody.'
-![](mr-nobody.gif)
+   If the user doesn't type a movie in, Liri will default to the movie 'Mr. Nobody.'
+   ![](mr-nobody.gif)
 
 4. **do-what-it-says**
    'do-what-it-says' takes text from within the random.txt file and runs spotify-this-song based on that text.
 
-   Screenshot of code:
+   **Screenshot of code:**
    ![](doWhatItSays.PNG)
 
-   How to initiate: node liri.js do-what-it-says
+   **How to initiate: node liri.js do-what-it-says**
    ![](do-what-it-says.gif)
 
 **Technologies Used**
